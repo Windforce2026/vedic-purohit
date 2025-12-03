@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandit Ji Online Puja - Book Pandit for Puja at Home</title>
+    <style>
+        /* --- STYLES.CSS CONTENT --- */
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --white: #ffffff;
+            --text-color: #333333;
+            --border-color: #ddd;
+            --success-color: #27ae60;
+            --orange-gradient: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--orange-gradient);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Pandit Ji Profile Section */
+        .pandit-showcase {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .pandit-photo-container {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid var(--primary-color);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pandit-photo-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        .pandit-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pandit-name {
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            font-size: 2rem;
+        }
+
+        .pandit-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-color);
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn-block {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--light-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light-color);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-card span {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--orange-gradient);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3, .footer h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--orange-gradient);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+        }
+
+        /* Services Detail Page */
+        .services-detail {
+            padding: 60px 0;
+        }
+
+        .life-events-bg {
+            background: var(--light-color);
+        }
+
+        /* Services Navigation */
+        .services-nav {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+        }
+
+        .services-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .category-link {
+            padding: 10px 20px;
+            background: var(--light-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .category-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .category-link.active-category {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .category-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            width: 100%;
+        }
+
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .service-detail-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-detail-header {
+            background: var(--light-color);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .service-icon-large {
+            font-size: 5rem;
+        }
+
+        .service-detail-header h2 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .service-detail-content {
+            padding: 2rem;
+        }
+
+        .service-detail-content h4 {
+            color: var(--dark-color);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .service-detail-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .service-actions {
+            margin-top: 2rem;
+        }
+
+        /* Booking Page */
+        .booking-section {
+            padding: 60px 0;
+            background: var(--light-color);
+        }
+
+        .booking-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        .booking-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-steps {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .booking-features,
+        .contact-emergency {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .booking-features h3,
+        .contact-emergency h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .booking-features ul {
+            list-style: none;
+        }
+
+        .booking-features li {
+            margin-bottom: 0.8rem;
+            color: var(--success-color);
+        }
+
+        .phone-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        /* Forms */
+        .booking-form,
+        .contact-form-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .booking-form h3,
+        .contact-form-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: normal;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .success-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .success-message h3, 
+        .success-message h4 {
+            color: #155724;
+            margin-bottom: 1rem;
+        }
+
+        /* About Page */
+        .about-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .about-intro h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .about-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mv-card {
+            background: var(--light-color);
+            padding: 3rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .mv-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .values-section {
+            margin-bottom: 4rem;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-choose {
+            margin-bottom: 4rem;
+        }
+
+        .why-choose h2 {
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .check {
+            color: var(--success-color);
+            font-size: 2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-section {
+            background: var(--light-color);
+            padding: 3rem;
+            border-radius: 10px;
+            margin-bottom: 4rem;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        .commitment {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .commitment h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .commitment ul {
+            margin-left: 2rem;
+        }
+
+        .commitment li {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Contact Page */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+        }
+
+        .contact-info-side h2 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            margin-bottom: 0.3rem;
+        }
+
+        .time {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #25D366;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .social-media {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-media h4 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-link {
+            padding: 0.5rem 1rem;
+            background: var(--light-color);
+            border-radius: 5px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .office-hours {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .office-hours h4 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .office-hours table {
+            width: 100%;
+        }
+
+        .office-hours td {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .office-hours td:first-child {
+            font-weight: 600;
+        }
+
+        .faq-quick {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .faq-quick h4 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .map-section {
+            background: var(--light-color);
+            padding: 60px 0;
+        }
+
+        .map-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .map-placeholder {
+            background: var(--white);
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .map-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Gallery Grid Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-placeholder {
+            height: 250px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+            background: var(--light-color);
+        }
+
+        .gallery-caption h4 {
+            color: var(--dark-color);
+            margin-bottom: 0;
+        }
+
+        /* Floating Contact Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px; /* Changed from left: 20px to right: 20px */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 2000;
+        }
+
+        .float-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .float-whatsapp {
+            background-color: #25D366;
+        }
+
+        .float-call {
+            background-color: #34b7f1; /* Or a standard phone color like #007bff */
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(52, 183, 241, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(52, 183, 241, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 183, 241, 0); }
+        }
+
+        .float-icon {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .category-heading {
+                font-size: 1.8rem;
+            }
+            
+            .services-nav {
+                position: relative;
+                top: 0;
+            }
+            
+            .services-categories {
+                gap: 0.5rem;
+            }
+            
+            .category-link {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .features-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-wrapper,
+            .contact-wrapper,
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-detail-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Single Page Application Logic Styles */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h2>🕉️ Vedic Purohit Soumitra Chakrabortty</h2>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" onclick="showPage('home'); return false;" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" onclick="showPage('services'); return false;" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" onclick="showPage('gallery'); return false;" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" onclick="showPage('booking'); return false;" class="nav-link" data-page="booking">Book Now</a></li>
+                    <li><a href="#" onclick="showPage('about'); return false;" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" onclick="showPage('contact'); return false;" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/919876543210" target="_blank" class="float-btn float-whatsapp" title="Chat on WhatsApp">
+            <!-- WhatsApp SVG Icon -->
+            <svg class="float-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 003.68 4.481a11.85 11.85 0 00-1.581 6.25c.002 2.091.547 4.133 1.584 5.928L2.4 22l5.482-1.439c1.729.943 3.682 1.44 5.679 1.44h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+        </a>
+        <a href="tel:+919876543210" class="float-btn float-call" title="Call Us">
+            <!-- Phone SVG Icon -->
+            <svg class="float-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.12.44 2.33.68 3.58.68.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C9.39 21 3 14.61 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.24 2.46.68 3.58a1 1 0 01-.27 1.11l-2.2 2.2z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Welcome for Divine Blessings</h1>
+                    <p>Book Experienced Pandits for Authentic Vedic Rituals at Your Home or Online</p>
+                    <div class="hero-buttons">
+                        <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book Puja Now</a>
+                        <a href="#" onclick="showPage('services'); return false;" class="btn btn-secondary">View Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Pandit Ji Section (New) -->
+        <section class="pandit-showcase">
+            <div class="container">
+                <div class="pandit-photo-container" onclick="showPage('about')" title="Click to know more">
+                    <!-- Updated Image with a high-quality Unsplash image of a Hindu Priest -->
+                    <img src="Images/About.jpeg" alt="Acharya Sharma Ji" class="pandit-photo">
+                </div>
+                <h2 class="pandit-name">Vedic Purohit Soumitra Chakrabortty</h2>
+                <span class="pandit-title">Expert in Vedic Rituals & Astrology</span>
+                <p style="max-width: 600px; margin: 0 auto 1.5rem;">With over 20 years of experience in performing sacred rituals, Acharya Sharma Ji brings authentic Vedic traditions to your home.</p>
+                <a href="#" onclick="showPage('about'); return false;" class="btn btn-secondary">Know More About Us</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Us</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>Experienced Purohits</h3>
+                        <p>Certified and knowledgeable priests with years of experience in Vedic rituals</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📿</div>
+                        <h3>Authentic Rituals</h3>
+                        <p>All pujas performed according to traditional Vedic scriptures and customs</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏠</div>
+                        <h3>Home & Online Service</h3>
+                        <p>Convenient puja services at your home or participate online from anywhere</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Transparent Pricing</h3>
+                        <p>Clear pricing with no hidden charges. All puja materials included</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Services -->
+        <section class="services-preview">
+            <div class="container">
+                <h2 class="section-title">Popular Puja Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">🪔</div>
+                        <h3>Ganesh Puja</h3>
+                        <p>Remove obstacles and bring prosperity to your home with sacred Ganesh puja</p>
+                        <a href="#" onclick="showPage('services'); return false;" class="btn-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">🌺</div>
+                        <h3>Lakshmi Puja</h3>
+                        <p>Invoke blessings of wealth, prosperity and abundance in your life</p>
+                        <a href="#" onclick="showPage('services'); return false;" class="btn-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">🔱</div>
+                        <h3>Shiva Puja</h3>
+                        <p>Seek divine blessings for peace, health and spiritual growth</p>
+                        <a href="#" onclick="showPage('services'); return false;" class="btn-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">🙏</div>
+                        <h3>Griha Pravesh</h3>
+                        <p>Purify and bless your new home with traditional housewarming ceremony</p>
+                        <a href="#" onclick="showPage('services'); return false;" class="btn-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">💍</div>
+                        <h3>Wedding Ceremony</h3>
+                        <p>Complete Vedic marriage rituals performed with authenticity and devotion</p>
+                        <a href="#" onclick="showPage('services'); return false;" class="btn-link">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">🕯️</div>
+                        <h3>Satyanarayan Katha</h3>
+                        <p>Divine blessings for health, happiness and fulfillment of desires</p>
+                        <a href="#" onclick="showPage('services'); return false;" class="btn-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="#" onclick="showPage('services'); return false;" class="btn btn-primary">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Devotees Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Excellent service! The pandit ji was very knowledgeable and performed the puja with complete devotion. Highly recommended!"</p>
+                        <h4>- Rajesh Kumar</h4>
+                        <span>Delhi</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Very professional and authentic. They made our Griha Pravesh ceremony memorable. Thank you for the wonderful service!"</p>
+                        <h4>- Priya Sharma</h4>
+                        <span>Gurgaon</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Booking was easy and the pandit arrived on time with all materials. The online puja option is great for those living abroad!"</p>
+                        <h4>- Amit Patel</h4>
+                        <span>Noida</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Book Your Puja?</h2>
+                <p>Connect with experienced pandits and bring divine blessings to your home</p>
+                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary btn-large">Book Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page-section">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Puja Services</h1>
+                <p>Choose from a wide range of authentic Vedic rituals</p>
+            </div>
+        </section>
+
+        <!-- Services Navigation -->
+        <section class="services-nav">
+            <div class="container">
+                <div class="services-categories">
+                    <a href="#deity-pujas" class="category-link">Deity Pujas</a>
+                    <a href="#pralokik-kriya" class="category-link">Pralokik Kriya</a>
+                    <a href="#life-event-pujas" class="category-link">Life Event Ceremonies</a>
+                    <a href="#dosha-nivaran" class="category-link">Dosha Nivaran</a>
+                    <a href="#special-pujas" class="category-link">Special Pujas</a>
+                    <a href="#havan-yagna" class="category-link">Havan & Yagna</a>
+                    <a href="#katha-path" class="category-link">Katha & Path</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deity Pujas Section -->
+        <section class="services-detail" id="deity-pujas">
+            <div class="container">
+                <h2 class="category-heading">🪔 Deity Pujas</h2>
+                <div class="services-list">
+                    
+                    <!-- Ganesh Puja -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🪔</div>
+                            <div>
+                                <h2>Ganesh Puja</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Lord Ganesha puja is performed to remove obstacles and bring prosperity, success, and wisdom. Ideal for new beginnings, business ventures, education, and house warming. As the remover of obstacles and lord of beginnings, Lord Ganesha is worshipped before starting any new venture.</p>
+                            
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Removes obstacles from life</li>
+                                <li>Brings success in new ventures</li>
+                                <li>Enhances wisdom and intelligence</li>
+                                <li>Provides protection from negativity</li>
+                                <li>Brings prosperity and good fortune</li>
+                            </ul>
+                            
+                            <h4>Hawan Samagri Included:</h4>
+                            <ul>
+                                <li>Mango wood sticks for havan</li>
+                                <li>Ghee (clarified butter)</li>
+                                <li>Durva grass (sacred grass)</li>
+                                <li>Modak (sacred offering)</li>
+                                <li>Red flowers and garlands</li>
+                                <li>Kumkum and haldi</li>
+                                <li>Rice and sesame seeds</li>
+                                <li>Sacred herbs mix</li>
+                                <li>Camphor and incense sticks</li>
+                            </ul>
+                            
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li>All puja materials and samagri</li>
+                                <li>Experienced pandit service</li>
+                                <li>Prasad distribution</li>
+                                <li>Online participation option available</li>
+                            </ul>
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lakshmi Puja -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🌺</div>
+                            <div>
+                                <h2>Lakshmi Puja</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Invoke Goddess Lakshmi's blessings for wealth, prosperity, and abundance. Perfect for Diwali, business openings, or seeking financial stability. The goddess of wealth and prosperity is worshipped to bring material and spiritual abundance.</p>
+                            
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Attracts wealth and prosperity</li>
+                                <li>Removes financial obstacles</li>
+                                <li>Brings business success</li>
+                                <li>Creates positive energy at home</li>
+                                <li>Ensures steady income flow</li>
+                            </ul>
+                            
+                            <h4>Hawan Samagri Included:</h4>
+                            <ul>
+                                <li>Lotus flowers and petals</li>
+                                <li>Gold and silver coins (symbolic)</li>
+                                <li>Pure ghee</li>
+                                <li>Turmeric and kumkum</li>
+                                <li>Betel leaves and nuts</li>
+                                <li>Dry fruits and sweets</li>
+                                <li>Sandalwood paste</li>
+                                <li>Sacred havan herbs</li>
+                                <li>Dhoop and agarbatti</li>
+                            </ul>
+                            
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Pralokik Kriya (Ancestor Rituals) Section -->
+        <section class="services-detail" id="pralokik-kriya">
+            <div class="container">
+                <h2 class="category-heading">🙏 Pralokik Kriya (Ancestor Rituals)</h2>
+                <div class="services-list">
+                    
+                    <!-- Shraddhanusthan -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🕯️</div>
+                            <div>
+                                <h2>Shraddhanusthan</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>A sacred ritual to pay homage to ancestors and departed souls, ensuring their peace and blessings. Usually performed annually on the death anniversary or during Pitru Paksha.</p>
+                            
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Peace for departed souls</li>
+                                <li>Blessings from ancestors</li>
+                                <li>Removal of Pitra Dosh</li>
+                                <li>Family harmony and prosperity</li>
+                            </ul>
+                            
+                            <h4>Samagri Included:</h4>
+                            <ul>
+                                <li>Black sesame seeds (Til)</li>
+                                <li>Barley and rice</li>
+                                <li>Kusha grass</li>
+                                <li>White flowers and cloth</li>
+                                <li>Pure ghee and honey</li>
+                            </ul>
+                            
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pind Daan -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🍚</div>
+                            <div>
+                                <h2>Pind Daan</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>The offering of 'Pinda' (rice balls) to ancestors to help their souls in the journey to the afterlife and attain liberation (Moksha).</p>
+                            
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Liberation (Moksha) for the soul</li>
+                                <li>Peace for seven generations</li>
+                                <li>Removal of obstacles in life</li>
+                                <li>Satisfaction of ancestors</li>
+                            </ul>
+                            
+                            <h4>Samagri Included:</h4>
+                            <ul>
+                                <li>Rice flour and cooked rice</li>
+                                <li>Black sesame and honey</li>
+                                <li>Ghee and milk</li>
+                                <li>Gangajal</li>
+                                <li>Tulsi leaves</li>
+                            </ul>
+                            
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sapindikaran -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🏺</div>
+                            <div>
+                                <h2>Sapindikaran</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>A crucial ritual performed on the 12th day after death to unite the Preta (spirit) with the Pitrs (ancestors), allowing the soul to join the ancestral realm.</p>
+                            
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Soul attains the status of an ancestor</li>
+                                <li>End of the mourning period</li>
+                                <li>Purification of the family</li>
+                                <li>Divine blessings</li>
+                            </ul>
+                            
+                            <h4>Samagri Included:</h4>
+                            <ul>
+                                <li>4 clay pots (Kumbhas)</li>
+                                <li>Cooked food offerings</li>
+                                <li>Vishnu idol or image</li>
+                                <li>Flowers and sandalwood</li>
+                                <li>Ghee and milk</li>
+                            </ul>
+                            
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarpan -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">💧</div>
+                            <div>
+                                <h2>Tarpan</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>The ritual of offering water mixed with sesame seeds to the ancestors to satisfy their thirst and seek their blessings. Can be performed daily or on Amavasya.</p>
+                            
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Satisfaction of ancestors</li>
+                                <li>Removes obstacles in career and life</li>
+                                <li>Mental peace and clarity</li>
+                                <li>Blessings for progeny</li>
+                            </ul>
+                            
+                            <h4>Samagri Included:</h4>
+                            <ul>
+                                <li>Pure water and Gangajal</li>
+                                <li>Black sesame seeds</li>
+                                <li>Kusha grass ring (Pavitra)</li>
+                                <li>Copper plate and spoon</li>
+                                <li>White flowers</li>
+                            </ul>
+                            
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shraddha Shanti Pooja -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">☮️</div>
+                            <div>
+                                <h2>Shraddha Shanti Pooja</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>A special puja performed for the peace of souls who may have died an untimely or unnatural death, or for those whose final rites were not performed correctly.</p>
+                            
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Peace to wandering souls</li>
+                                <li>Removal of haunting or negative energy</li>
+                                <li>Family protection and harmony</li>
+                                <li>Resolves unexplained problems</li>
+                            </ul>
+                            
+                            <h4>Samagri Included:</h4>
+                            <ul>
+                                <li>White clothes for donation</li>
+                                <li>Special food offerings</li>
+                                <li>Ghee lamps and camphor</li>
+                                <li>Gangajal and milk</li>
+                                <li>Sacred herbs for Shanti Havan</li>
+                            </ul>
+                            
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Life Event Ceremonies Section -->
+        <section class="services-detail life-events-bg" id="life-event-pujas">
+            <div class="container">
+                <h2 class="category-heading">💍 Life Event Ceremonies (Sanskars)</h2>
+                <div class="services-list">
+                    <!-- Wedding Ceremony -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">💍</div>
+                            <div>
+                                <h2>Vivah / Wedding Ceremony</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Complete Vedic marriage ceremony performed with all traditional rituals and customs for an auspicious beginning. One of the most important sanskars in Hindu tradition, uniting two souls for seven lifetimes.</p>
+                            
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li>Ganesh puja and Kalash sthapana</li>
+                                <li>Kanyadaan ceremony</li>
+                                <li>Saptapadi (seven sacred vows)</li>
+                                <li>Agni puja and havan</li>
+                                <li>Mangalsutra and sindoor ceremony</li>
+                                <li>Complete guidance throughout ceremony</li>
+                                <li>All necessary puja materials</li>
+                            </ul>
+                            
+                            <h4>Hawan Samagri Included:</h4>
+                            <ul>
+                                <li>Sacred fire wood (mango, peepal)</li>
+                                <li>Pure desi ghee</li>
+                                <li>Rice mixed with turmeric</li>
+                                <li>Sesame seeds and barley</li>
+                                <li>Flowers and garlands</li>
+                                <li>Sacred thread (kalava)</li>
+                                <li>Complete havan herbs mix</li>
+                                <li>Sandalwood and camphor</li>
+                            </ul>
+                            
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dosha Nivaran Section (Restored) -->
+        <section class="services-detail" id="dosha-nivaran">
+            <div class="container">
+                <h2 class="category-heading">🔮 Dosha Nivaran Pujas</h2>
+                <div class="services-list">
+                    <!-- Kaal Sarp Dosh -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🐍</div>
+                            <div>
+                                <h2>Kaal Sarp Dosh Nivaran Puja</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>This puja is performed when all planets are hemmed between Rahu and Ketu in one's horoscope. This creates obstacles in various life areas and needs special remedies for mitigation.</p>
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Removes obstacles in career and business</li>
+                                <li>Brings mental peace</li>
+                                <li>Improves relationships</li>
+                                <li>Financial stability</li>
+                            </ul>
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mangal Dosh -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🔴</div>
+                            <div>
+                                <h2>Mangal Dosh Nivaran Puja</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Performed to reduce the malefic effects of Mars (Mangal) in one's horoscope, especially important before marriage to ensure marital harmony.</p>
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Ensures happy married life</li>
+                                <li>Removes marriage obstacles</li>
+                                <li>Reduces anger and aggression</li>
+                            </ul>
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Pujas Section (Restored) -->
+        <section class="services-detail life-events-bg" id="special-pujas">
+            <div class="container">
+                <h2 class="category-heading">✨ Special Pujas</h2>
+                <div class="services-list">
+                    <!-- Satyanarayan Katha -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🕯️</div>
+                            <div>
+                                <h2>Satyanarayan Katha</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Sacred ritual to seek Lord Vishnu's blessings for health, happiness, and fulfillment of desires. Performed on special occasions, full moon days, and festivals.</p>
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Fulfillment of wishes</li>
+                                <li>Family harmony and peace</li>
+                                <li>Good health and prosperity</li>
+                            </ul>
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Vastu Shanti -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🏠</div>
+                            <div>
+                                <h2>Vastu Shanti Puja</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Performed to remove Vastu doshas from home or office and establish positive energy flow. Essential for peace, prosperity, and harmony in the premises.</p>
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Removes Vastu defects</li>
+                                <li>Brings positive energy</li>
+                                <li>Peace and harmony at home</li>
+                            </ul>
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Havan & Yagna Section (Restored) -->
+        <section class="services-detail" id="havan-yagna">
+            <div class="container">
+                <h2 class="category-heading">🔥 Havan & Yagna</h2>
+                <div class="services-list">
+                    <!-- General Havan -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">🔥</div>
+                            <div>
+                                <h2>Havan / Yagna</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Sacred fire ceremony to purify the environment and invoke divine blessings. Can be customized for various occasions and purposes.</p>
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Purifies environment and atmosphere</li>
+                                <li>Removes negative energies</li>
+                                <li>Brings divine blessings</li>
+                            </ul>
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Katha & Path Section (Restored) -->
+        <section class="services-detail life-events-bg" id="katha-path">
+            <div class="container">
+                <h2 class="category-heading">📖 Katha & Path (Sacred Recitations)</h2>
+                <div class="services-list">
+                    <!-- Sunderkand Path -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-header">
+                            <div class="service-icon-large">📿</div>
+                            <div>
+                                <h2>Sunderkand Path</h2>
+                            </div>
+                        </div>
+                        <div class="service-detail-content">
+                            <p>Recitation of the fifth chapter of Ramcharitmanas describing Hanuman ji's journey to Lanka. Brings strength, courage, and removes obstacles.</p>
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>Removes all obstacles</li>
+                                <li>Brings courage and confidence</li>
+                                <li>Success in difficult tasks</li>
+                            </ul>
+                            <div class="service-actions">
+                                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary">Book This Puja</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Book Your Puja?</h2>
+                <p>Can't find what you're looking for? Contact us for customized puja services</p>
+                <a href="#" onclick="showPage('contact'); return false;" class="btn btn-primary btn-large">Contact Us</a>
+            </div>
+        </section>
+    </div>
+    
+    <!-- GALLERY PAGE (moved out of services page) -->
+    <div id="gallery" class="page-section">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Photo Gallery</h1>
+                <p>Glimpses of our sacred rituals and divine moments</p>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <img src="Images/gal0.jpeg" alt="">
+                        </div>
+                        <div class="gallery-caption">
+                            <h4></h4>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;"></p>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Book Your Puja?</h2>
+                <p>Connect with experienced pandits and bring divine blessings to your home</p>
+                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary btn-large">Book Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- BOOKING PAGE -->
+    <div id="booking" class="page-section">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Book Your Puja</h1>
+                <p>Fill in your details and we'll get back to you shortly</p>
+            </div>
+        </section>
+
+        <!-- Booking Form Section -->
+        <section class="booking-section">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <div class="booking-info">
+                        <h2>Quick Booking Process</h2>
+                        <div class="info-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Fill the Form</h4>
+                                    <p>Provide your details and select your preferred puja service</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Get Confirmation</h4>
+                                    <p>We'll call you within 2 hours to confirm your booking</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Puja Performance</h4>
+                                    <p>Experienced pandit will perform the puja at your chosen time</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="booking-features">
+                            <h3>What's Included:</h3>
+                            <ul>
+                                <li>✓ Experienced and certified pandit</li>
+                                <li>✓ All puja materials and samagri</li>
+                                <li>✓ Proper Vedic rituals</li>
+                                <li>✓ Prasad for family</li>
+                                <li>✓ Online participation option</li>
+                                <li>✓ Post-puja guidance</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-emergency">
+                            <h3>Need Urgent Booking?</h3>
+                            <p>Call us directly for same-day bookings</p>
+                            <a href="tel:+919876543210" class="phone-link">📞 +91 98765 43210</a>
+                        </div>
+                    </div>
+
+                    <div class="booking-form">
+                        <form id="bookingForm">
+                            <h3>Booking Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="puja">Select Puja Service *</label>
+                                <select id="puja" name="puja" required>
+                                    <option value="">Choose a puja</option>
+                                    <optgroup label="Deity Pujas">
+                                        <option value="ganesh">Ganesh Puja</option>
+                                        <option value="lakshmi">Lakshmi Puja</option>
+                                        <option value="shiva">Shiva Puja / Rudrabhishek</option>
+                                        <option value="durga">Durga Puja</option>
+                                        <option value="hanuman">Hanuman Puja</option>
+                                    </optgroup>
+                                    <optgroup label="Pralokik Kriya (Ancestor Rituals)">
+                                        <option value="shraddhanusthan">Shraddhanusthan</option>
+                                        <option value="pind-daan">Pind Daan</option>
+                                        <option value="sapindikaran">Sapindikaran</option>
+                                        <option value="tarpan">Tarpan</option>
+                                        <option value="shraddha-shanti">Shraddha Shanti Pooja</option>
+                                    </optgroup>
+                                    <optgroup label="Life Event Ceremonies">
+                                        <option value="wedding">Wedding Ceremony</option>
+                                        <option value="griha">Griha Pravesh</option>
+                                        <option value="namkaran">Namkaran Sanskar</option>
+                                        <option value="mundan">Mundan Sanskar</option>
+                                        <option value="annaprashan">Annaprashan</option>
+                                        <option value="janeu">Janeu / Upanayana</option>
+                                        <option value="engagement">Engagement Ceremony</option>
+                                    </optgroup>
+                                    <optgroup label="Dosha Nivaran">
+                                        <option value="kaal-sarp">Kaal Sarp Dosh Nivaran</option>
+                                        <option value="mangal">Mangal Dosh Nivaran</option>
+                                        <option value="navagraha">Navagraha Shanti Puja</option>
+                                        <option value="pitra">Pitra Dosh Nivaran</option>
+                                        <option value="shani">Shani Dosh Nivaran</option>
+                                    </optgroup>
+                                    <optgroup label="Special Pujas">
+                                        <option value="satyanarayan">Satyanarayan Katha</option>
+                                        <option value="vastu">Vastu Shanti Puja</option>
+                                        <option value="navratri">Navratri Puja</option>
+                                        <option value="mahamrityunjaya">Mahamrityunjaya Jaap</option>
+                                        <option value="diwali">Diwali Lakshmi Puja</option>
+                                        <option value="bhumi">Bhumi Pujan</option>
+                                    </optgroup>
+                                    <optgroup label="Havan & Yagna">
+                                        <option value="havan">General Havan / Yagna</option>
+                                        <option value="ganapati-homa">Ganapati Homa</option>
+                                        <option value="lakshmi-kubera">Lakshmi Kubera Homa</option>
+                                        <option value="sudarshan">Sudarshan Homa</option>
+                                    </optgroup>
+                                    <optgroup label="Katha & Path">
+                                        <option value="sunderkand">Sunderkand Path</option>
+                                        <option value="akhand-path">Akhand Path</option>
+                                        <option value="bhagwat">Bhagwat Katha</option>
+                                        <option value="ramayana">Ramayana Path</option>
+                                    </optgroup>
+                                    <option value="other">Other (Specify in message)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">Preferred Date *</label>
+                                    <input type="date" id="date" name="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Preferred Time *</label>
+                                    <input type="time" id="time" name="time" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service-type">Service Type *</label>
+                                <select id="service-type" name="service-type" required>
+                                    <option value="">Choose service type</option>
+                                    <option value="home">At Home</option>
+                                    <option value="online">Online</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address (For Home Service)</label>
+                                <textarea id="address" name="address" rows="3" placeholder="Enter your complete address with city and pincode"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="guests">Number of Guests (Approximate)</label>
+                                <input type="number" id="guests" name="guests" min="1" placeholder="e.g., 10">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Special Requirements or Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Any specific requirements or questions?"></textarea>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="whatsapp" id="whatsapp">
+                                    Send updates via WhatsApp
+                                </label>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="terms" id="terms" required>
+                                    I agree to the terms and conditions *
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-large btn-block">Submit Booking Request</button>
+
+                            <p class="form-note">* We'll call you within 2 hours to confirm your booking and discuss payment details</p>
+                        </form>
+
+                        <div id="successMessage" class="success-message" style="display: none;">
+                            <h3>✓ Booking Request Received!</h3>
+                            <p>Thank you for your booking. We'll contact you shortly to confirm the details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page-section">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Bringing authentic Vedic traditions to your doorstep</p>
+            </div>
+        </section>
+
+        <!-- About Content -->
+        <section class="about-content">
+            <div class="container">
+                <div class="about-intro">
+                    <h2>Welcome to Pandit Ji Online Puja</h2>
+                    <p>In today's fast-paced world, maintaining our spiritual connection and following traditional rituals has become challenging. Pandit Ji Online Puja was founded with a simple mission: to make authentic Vedic rituals accessible to everyone, regardless of their location or busy schedules.</p>
+                    <p>We are a trusted platform that connects devotees with experienced, knowledgeable, and certified Hindu priests who perform a wide range of Vedic rituals, ceremonies, and pujas with complete devotion and authenticity.</p>
+                </div>
+
+                <!-- Meet Pandit Ji Section (Added to About Page) -->
+                <div class="pandit-showcase" style="padding-top: 0; padding-bottom: 4rem;">
+                    <div class="pandit-photo-container">
+                        <img src="https://images.unsplash.com/photo-1598926938956-62402ba696b6?auto=format&fit=crop&w=400&q=80" alt="Acharya Sharma Ji" class="pandit-photo">
+                    </div>
+                    <h2 class="pandit-name">Acharya Sharma Ji</h2>
+                    <span class="pandit-title">Head Priest & Founder</span>
+                    <p style="max-width: 600px; margin: 0 auto 1.5rem;">"My mission is to ensure that every Hindu family, no matter where they reside, has access to authentic Vedic rituals performed with the utmost purity and devotion."</p>
+                    <a href="#" onclick="showPage('contact'); return false;" class="btn btn-secondary">Contact Acharya Ji</a>
+                </div>
+
+                <div class="mission-vision">
+                    <div class="mv-card">
+                        <h3>🎯 Our Mission</h3>
+                        <p>To preserve and promote authentic Vedic traditions by making them easily accessible to devotees worldwide through both in-person and online services, while maintaining the sanctity and authenticity of each ritual.</p>
+                    </div>
+                    <div class="mv-card">
+                        <h3>👁️ Our Vision</h3>
+                        <p>To become the most trusted platform for Vedic rituals and ceremonies, helping millions of devotees connect with their spiritual roots and receive divine blessings through authentic Hindu traditions.</p>
+                    </div>
+                </div>
+
+                <div class="values-section">
+                    <h2>Our Core Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">📿</div>
+                            <h4>Authenticity</h4>
+                            <p>Every ritual is performed according to traditional Vedic scriptures with proper mantras and procedures</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🙏</div>
+                            <h4>Devotion</h4>
+                            <p>Our pandits perform each puja with complete dedication and spiritual devotion</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">⭐</div>
+                            <h4>Excellence</h4>
+                            <p>We maintain the highest standards in service delivery and customer satisfaction</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <h4>Trust</h4>
+                            <p>Building long-term relationships through transparency and reliability</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-choose">
+                    <h2>Why Choose Pandit Ji Online Puja?</h2>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>Experienced Pandits</h4>
+                                <p>All our pandits are highly qualified with years of experience in performing Vedic rituals. They are well-versed in Sanskrit mantras and traditional procedures.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>Complete Transparency</h4>
+                                <p>No hidden charges. Clear pricing for all services with detailed information about what's included in each package.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>Flexible Service Options</h4>
+                                <p>Choose between in-home puja services or participate online from anywhere in the world. We accommodate your schedule and preferences.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>All Materials Provided</h4>
+                                <p>We bring all necessary puja materials, samagri, and items required for the ceremony. You don't need to worry about arranging anything.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h2>Our Pandits</h2>
+                    <p class="team-intro">Our network consists of highly qualified and experienced pandits who are dedicated to preserving and practicing authentic Vedic traditions.</p>
+                    <div class="team-stats">
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Experienced Pandits</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Pujas Performed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3000+</div>
+                            <div class="stat-label">Happy Families</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4.9/5</div>
+                            <div class="stat-label">Average Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commitment">
+                    <h2>Our Commitment to You</h2>
+                    <p>We understand that spiritual rituals are deeply personal and significant moments in your life. That's why we are committed to:</p>
+                    <ul>
+                        <li>Providing authentic and traditional Vedic ceremonies</li>
+                        <li>Respecting your customs, traditions, and preferences</li>
+                        <li>Ensuring punctuality and professionalism</li>
+                        <li>Maintaining the highest standards of hygiene and cleanliness</li>
+                        <li>Offering guidance and support throughout the process</li>
+                        <li>Making your spiritual journey meaningful and memorable</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Book Your Puja?</h2>
+                <p>Experience authentic Vedic rituals with our experienced pandits</p>
+                <a href="#" onclick="showPage('booking'); return false;" class="btn btn-primary btn-large">Book Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-section">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>We're here to help with all your spiritual needs</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <!-- Contact Information -->
+                    <div class="contact-info-side">
+                        <h2>Get In Touch</h2>
+                        <p>Have questions about our services? Need help with booking? We're here to assist you.</p>
+
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <div class="contact-icon">📞</div>
+                                <h4>Phone</h4>
+                                <p>+91 98765 43210</p>
+                                <p>+91 98765 43211</p>
+                                <span class="time">Mon - Sun: 7:00 AM - 9:00 PM</span>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">📧</div>
+                                <h4>Email</h4>
+                                <p>info@panditjipuja.com</p>
+                                <p>support@panditjipuja.com</p>
+                                <span class="time">We reply within 24 hours</span>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">📍</div>
+                                <h4>Service Area</h4>
+                                <p>Delhi NCR Region</p>
+                                <p>Delhi, Gurgaon, Noida, Faridabad, Ghaziabad</p>
+                                <span class="time">Online services available globally</span>
+                            </div>
+                        </div>
+
+                        <div class="social-media">
+                            <h4>Follow Us</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link">Facebook</a>
+                                <a href="#" class="social-link">Instagram</a>
+                                <a href="#" class="social-link">YouTube</a>
+                                <a href="#" class="social-link">Twitter</a>
+                            </div>
+                        </div>
+
+                        <div class="office-hours">
+                            <h4>Office Hours</h4>
+                            <table>
+                                <tr>
+                                    <td>Monday - Saturday</td>
+                                    <td>7:00 AM - 9:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday</td>
+                                    <td>8:00 AM - 8:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Holidays</td>
+                                    <td>Emergency services available</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-side">
+                        <div class="contact-form-card">
+                            <h3>Send Us a Message</h3>
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="contact-name">Your Name *</label>
+                                    <input type="text" id="contact-name" name="name" required placeholder="Enter your full name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-email">Email Address *</label>
+                                    <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-phone">Phone Number *</label>
+                                    <input type="tel" id="contact-phone" name="phone" required placeholder="+91 98765 43210">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject">Subject *</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="booking">Booking Inquiry</option>
+                                        <option value="service">Service Information</option>
+                                        <option value="pricing">Pricing Question</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="complaint">Complaint</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-message">Your Message *</label>
+                                    <textarea id="contact-message" name="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="contact-updates">
+                                        I'd like to receive updates about services and offers
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-large btn-block">Send Message</button>
+                            </form>
+
+                            <div id="contactSuccessMessage" class="success-message" style="display: none;">
+                                <h4>✓ Message Sent Successfully!</h4>
+                                <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-quick">
+                            <h4>Quick FAQs</h4>
+                            <div class="faq-item">
+                                <strong>Q: How far in advance should I book?</strong>
+                                <p>We recommend booking at least 3-5 days in advance. Same-day bookings may be available, call us to check.</p>
+                            </div>
+                            <div class="faq-item">
+                                <strong>Q: Do you provide puja materials?</strong>
+                                <p>Yes, we provide all necessary puja materials and samagri. You don't need to arrange anything.</p>
+                            </div>
+                            <div class="faq-item">
+                                <strong>Q: Are online pujas authentic?</strong>
+                                <p>Yes, online pujas are performed with the same authenticity and devotion as in-person ceremonies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section (Placeholder) -->
+        <section class="map-section">
+            <div class="container">
+                <h2>Service Coverage Area</h2>
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <h3>We Serve Delhi NCR Region</h3>
+                        <p>Including Delhi, Gurgaon, Noida, Faridabad, and Ghaziabad</p>
+                        <p><strong>Online services available worldwide</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Pandit Ji Online Puja</h3>
+                    <p>Authentic Vedic rituals performed by experienced pandits for your spiritual needs.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+                        <li><a href="#" onclick="showPage('services'); return false;">Services</a></li>
+                        <li><a href="#" onclick="showPage('gallery'); return false;">Gallery</a></li>
+                        <li><a href="#" onclick="showPage('booking'); return false;">Book Now</a></li>
+                        <li><a href="#" onclick="showPage('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('services'); return false;">Ganesh Puja</a></li>
+                        <li><a href="#" onclick="showPage('services'); return false;">Lakshmi Puja</a></li>
+                        <li><a href="#" onclick="showPage('services'); return false;">Griha Pravesh</a></li>
+                        <li><a href="#" onclick="showPage('services'); return false;">Wedding Ceremony</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>📞 +91 98765 43210</li>
+                        <li>📧 info@panditjipuja.com</li>
+                        <li>📍 Delhi NCR, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pandit Ji Online Puja. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- NAVIGATION LOGIC ---
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show requested page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Update Active Link in Navbar
+            document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+
+            // Close mobile menu if open
+            const navMenu = document.getElementById('navMenu');
+            const hamburger = document.getElementById('hamburger');
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        }
+
+        // --- SCRIPT.JS CONTENT ---
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                
+                // Animate hamburger
+                hamburger.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        }
+
+        // Booking Form Handling
+        const bookingForm = document.getElementById('bookingForm');
+        const successMessage = document.getElementById('successMessage');
+
+        if (bookingForm) {
+            // Set minimum date to today
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                
+                const pujaSelect = document.getElementById('puja');
+                const puja = pujaSelect.options[pujaSelect.selectedIndex].text;
+                
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                
+                const serviceTypeSelect = document.getElementById('service-type');
+                const serviceType = serviceTypeSelect.options[serviceTypeSelect.selectedIndex].text;
+                
+                const address = document.getElementById('address').value;
+                const guests = document.getElementById('guests').value;
+                const message = document.getElementById('message').value;
+
+                // Construct WhatsApp Message
+                let waMessage = `*New Puja Booking Request* %0a`;
+                waMessage += `*Name:* ${name}%0a`;
+                waMessage += `*Phone:* ${phone}%0a`;
+                waMessage += `*Email:* ${email}%0a`;
+                waMessage += `*Puja:* ${puja}%0a`;
+                waMessage += `*Date:* ${date}%0a`;
+                waMessage += `*Time:* ${time}%0a`;
+                waMessage += `*Service Type:* ${serviceType}%0a`;
+                if(address) waMessage += `*Address:* ${address}%0a`;
+                if(guests) waMessage += `*Guests:* ${guests}%0a`;
+                if(message) waMessage += `*Note:* ${message}%0a`;
+
+                // WhatsApp API URL
+                const phoneNumber = "919876543210"; // Using the placeholder number from the file
+                const url = `https://wa.me/${phoneNumber}?text=${waMessage}`;
+
+                // Open WhatsApp
+                window.open(url, '_blank');
+                
+                // Show success message
+                bookingForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                successMessage.querySelector('h3').innerText = "✓ Redirecting to WhatsApp...";
+                successMessage.querySelector('p').innerText = "Please complete the message send in WhatsApp to finalize your booking.";
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        const contactSuccessMessage = document.getElementById('contactSuccessMessage');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+                
+                console.log('Contact Data:', data);
+                
+                // Show success message
+                contactForm.style.display = 'none';
+                contactSuccessMessage.style.display = 'block';
+                
+                // Scroll to success message
+                contactSuccessMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Smooth Scrolling for Anchor Links (Enhanced for SPA)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // Ignore onclick handlers for page switching
+                if (this.onclick) return;
+
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Calculate offset for sticky nav
+                        const navHeight = document.querySelector('.services-nav') ? 140 : 80;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with animation class
+        document.querySelectorAll('.feature-card, .service-card, .testimonial-card, .service-detail-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Form Validation Enhancement
+        function validatePhone(phone) {
+            const phoneRegex = /^[+]?[\d\s-()]+$/;
+            return phoneRegex.test(phone);
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Add real-time validation to forms
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && !validatePhone(this.value)) {
+                    this.style.borderColor = '#e74c3c';
+                    showValidationMessage(this, 'Please enter a valid phone number');
+                } else {
+                    this.style.borderColor = '';
+                    hideValidationMessage(this);
+                }
+            });
+        });
+
+        const emailInputs = document.querySelectorAll('input[type="email"]');
+        emailInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && !validateEmail(this.value)) {
+                    this.style.borderColor = '#e74c3c';
+                    showValidationMessage(this, 'Please enter a valid email address');
+                } else {
+                    this.style.borderColor = '';
+                    hideValidationMessage(this);
+                }
+            });
+        });
+
+        function showValidationMessage(input, message) {
+            hideValidationMessage(input); 
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'validation-error';
+            errorDiv.style.color = '#e74c3c';
+            errorDiv.style.fontSize = '0.85rem';
+            errorDiv.style.marginTop = '0.25rem';
+            errorDiv.textContent = message;
+            
+            input.parentNode.appendChild(errorDiv);
+        }
+
+        function hideValidationMessage(input) {
+            const existingError = input.parentNode.querySelector('.validation-error');
+            if (existingError) {
+                existingError.remove();
+            }
+        }
+
+        // Back to Top Button
+        const backToTopBtn = document.createElement('button');
+        backToTopBtn.innerHTML = '↑';
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        `;
+
+        document.body.appendChild(backToTopBtn);
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        backToTopBtn.addEventListener('mouseenter', () => {
+            backToTopBtn.style.transform = 'scale(1.1)';
+        });
+
+        backToTopBtn.addEventListener('mouseleave', () => {
+            backToTopBtn.style.transform = 'scale(1)';
+        });
+
+        console.log('%cPandit Ji Online Puja', 'color: #ff6b35; font-size: 24px; font-weight: bold;');
+    </script>
+</body>
+</html>
